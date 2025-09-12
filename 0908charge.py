@@ -89,17 +89,21 @@ for tc in range(1,T+1):
     for i in range(BC_count):
         BC_info[i] = tuple(map(int,input().split()))
 
+    print(BC_info)
+
     # 순차적으로 이동하며 충전하기
     for step in range(N+1):
-
         # 1. A와 B를 이동하기
         a_dir, b_dir = A_path[step],B_path[step]
         A[0] += dr[a_dir]
         A[1] += dc[a_dir]
         B[0] += dr[b_dir]
         B[1] += dc[b_dir]
-    
+        
 
+        print(A)
+        print(B)
+    
         # 2. A, B 각각이 충전 가능한 충전소를 파악하기
         #    > 충전 가능한 충전소의 인덱스를 저장하겠다
         A_BCs= []
@@ -114,6 +118,9 @@ for tc in range(1,T+1):
 
         A_BCs.sort(key=lambda x:x[1],reverse=True)
         B_BCs.sort(key=lambda x:x[1],reverse=True)
+
+        print(A_BCs)
+        print(B_BCs)
 
         # 3. 최대 충전량이 확보 가능한 충전기를 고르기 
         #  ㄱ. 충전기가 겹치지 않는 경우
